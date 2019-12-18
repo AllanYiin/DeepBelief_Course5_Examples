@@ -1,0 +1,35 @@
+*.DS_Store
+*.pyc
+*.swp
+temp/*
+_generated/*
+_對抗式攻擊/*
+prewarm02_活化函數大清點/*
+prewarm01_另一種角度看mnist/*
+
+tags
+*.egg-info/
+*.egg
+*.py[cod]
+__pycache__/
+*.so
+*~
+*.pth
+
+*_1.py
+_*.py
+_*.ipynb
+# test-related
+.coverage
+.cache
+.pytest_cache
+.tox
+# developer environments
+.idea
+.vscode
+
+
+
+# Project exclude paths
+/prewarm03_自動寶可夢編碼器/Results/
+/prewarm03_自動寶可夢編碼器/新增資料夾/
