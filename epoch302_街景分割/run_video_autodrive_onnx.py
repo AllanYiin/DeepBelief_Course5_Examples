@@ -41,13 +41,13 @@ input_name = ort_session.get_inputs()[0].name
 #如果想要改成webcam 改成  cv2.VideoCapture(0)即可
 cap = cv2.VideoCapture('drive1.mp4')  # capture from camera
 
-#寫入成VIDEO  (如果沒有要錄製的話可以註解掉 設定為每秒30禎  720*720)
-vw = cv2.VideoWriter('autodrive_v4.avi', cv2.VideoWriter_fourcc('M','J','P','G'),30, (720, 720))
+#寫入成VIDEO  (如果沒有要錄製的話可以註解掉 設定為每秒20禎  720*720)
+vw = cv2.VideoWriter('autodrive_v6.avi', cv2.VideoWriter_fourcc('M','J','P','G'),30, (720, 720))
 
 
 #事先初始化需要的函數
 norm=normalize([0.485, 0.456, 0.406],[0.229, 0.224, 0.225])
-resize=resize((224,224),keep_aspect=True,align_corner=True)
+resize=resize((224,224),keep_aspect=True,align_corner=True,order=1)
 #rescale=rescale(1280/224.0,order=1)
 
 sum = 0
@@ -82,8 +82,9 @@ while True:
     pred_mask=pred_mask[:, :112, :].transpose([1,2,0])
     #將(224,112)線性縮放至(720,360)
     pred_mask = cv2.resize(pred_mask, (720,360), interpolation=cv2.INTER_LINEAR)
+
     #argmax取出最大索引，畫出色彩標籤圖
-    pred_mask=label2color(np.argmax(pred_mask,-1),palette)
+    pred_mask=label2color(np.argmax(pred_mask,-1),palette).astype(np.float32)
 
     #把影像縮放至(720,360)
     bgr_image = cv2.resize(bgr_image,(720,360),cv2.INTER_AREA)
