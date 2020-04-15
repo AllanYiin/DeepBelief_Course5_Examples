@@ -30,19 +30,18 @@ trident的原意是三叉戟，象徵的我們之前一貫維持一個實作三�
 
 各位可以直接使用pip安裝trident
 
-
-    pip install tridentx   --upgrade  
-
+`
+pip install tridentx   --upgrade  
+`
 
 引用trident的方法也很簡單，語法如下，需要透過環境變數來指定使用框架，目前支持pytorch 1.2以上以及tensorflow 2.0以上版本
 
-
-    import os     
-    os.environ['TRIDENT_BACKEND'] = 'pytorch'  
-    import trident as T    
-    from trident import *    
-
-
+`
+import os  
+os.environ['TRIDENT_BACKEND'] = 'pytorch'  
+import trident as T  
+from trident import *  
+`'
 
 
 
