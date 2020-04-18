@@ -4,18 +4,18 @@
 <https://www.tibame.com/search?q=%E5%B0%B9%E7%9B%B8%E5%BF%97>
 
 每個實作名稱前的編碼規劃是根據深度學習相關主題   
-*epoch0 深度學習基礎概念與最佳化   
-*epoch1 圖像識別   
-*epoch2 目標檢測與追蹤   
-*epoch3 語意分割/實例分割/全景分割   
-*epoch4 非GAN的圖像生成、圖像修復、圖像翻譯   
-*epoch5 生成式對抗網路(GAN)以及對抗式攻擊   
-*epoch6 人臉相關應用   
-*epoch7 基礎語言模型與語言預訓練模型   
-*epoch8 Seq2Seq   
-*epoch9 閱讀理解/智能問答   
-*epochA 圖像與語言融合   
-*epochB 強化學習  
+* epoch0 深度學習基礎概念與最佳化   
+* epoch1 圖像識別   
+* epoch2 目標檢測與追蹤   
+* epoch3 語意分割/實例分割/全景分割   
+* epoch4 非GAN的圖像生成、圖像修復、圖像翻譯   
+* epoch5 生成式對抗網路(GAN)以及對抗式攻擊   
+* epoch6 人臉相關應用   
+* epoch7 基礎語言模型與語言預訓練模型   
+* epoch8 Seq2Seq   
+* epoch9 閱讀理解/智能問答   
+* epochA 圖像與語言融合   
+* epochB 強化學習  
 
 
 
