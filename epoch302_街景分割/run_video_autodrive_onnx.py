@@ -10,7 +10,7 @@ import os
 os.environ['TRIDENT_BACKEND'] = 'pytorch'
 import trident
 from trident import *
-
+from trident.data.image_common import image_backend_adaption
 # onnx runtime
 import onnxruntime as ort
 import uuid
@@ -24,7 +24,7 @@ elif isinstance(palette,OrderedDict) and len(palette.value_list[0])==3:
     palette=palette.value_list
 
 
-onnx_path = "Models/tiramisu_softmax.onnx"
+onnx_path = "Models/tiramisu2.onnx"
 
 #載入onnx模型進行檢查，不需要每次都做，只要轉檔後做一次即可
 predictor = onnx.load(onnx_path)
@@ -42,7 +42,7 @@ input_name = ort_session.get_inputs()[0].name
 cap = cv2.VideoCapture('drive1.mp4')  # capture from camera
 
 #寫入成VIDEO  (如果沒有要錄製的話可以註解掉 設定為每秒20禎  720*720)
-vw = cv2.VideoWriter('autodrive_v6.avi', cv2.VideoWriter_fourcc('M','J','P','G'),30, (720, 720))
+vw = cv2.VideoWriter('autodrive_v7.avi', cv2.VideoWriter_fourcc('M','J','P','G'),30, (720, 720))
 
 
 #事先初始化需要的函數
@@ -51,6 +51,10 @@ resize=resize((224,224),keep_aspect=True,align_corner=True,order=1)
 #rescale=rescale(1280/224.0,order=1)
 
 sum = 0
+
+
+
+
 while True:
     #開始讀取影像
     ret, bgr_image = cap.read()
@@ -70,7 +74,7 @@ while True:
     #normalize圖片
     rgb_image=norm(rgb_image.astype(np.float32)/255.0)
     #加入批次維   image_backend_adaptive轉成通道在前pytorch模式
-    rgb_image=np.expand_dims(image_backend_adaptive(rgb_image),0).astype(np.float32)
+    rgb_image=np.expand_dims(image_backend_adaption(rgb_image),0).astype(np.float32)
 
     #開始記錄時間
     time_time = time.time()
@@ -103,4 +107,9 @@ while True:
 cap.release()
 #銷毀所有視窗
 cv2.destroyAllWindows()
+
+
+
+# with open("Models/charlist.txt",encoding='utf-8-sig') as f:
+#     f.write()
 
